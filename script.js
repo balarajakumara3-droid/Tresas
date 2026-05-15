@@ -73,21 +73,24 @@ enquiryForm?.addEventListener("submit", (event) => {
 startSlider();
 
 // Counter Animation
-function animateCounters() {
-  const counters = document.querySelectorAll(".stat-number");
+function animateCounters(elements) {
   const speed = 200;
 
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute("data-target");
-      const count = +counter.innerText.replace("+", "");
-      const inc = target / speed;
+  elements.forEach(counter => {
+    const target = parseFloat(counter.getAttribute("data-target"));
+    const suffix = counter.getAttribute("data-suffix") || (counter.getAttribute("data-plus") === "true" ? "+" : "");
+    const decimals = parseInt(counter.getAttribute("data-decimals")) || 0;
+    
+    let current = 0;
+    const inc = target / speed;
 
-      if (count < target) {
-        counter.innerText = Math.ceil(count + inc) + (counter.innerText.includes("+") ? "+" : "");
-        setTimeout(updateCount, 1);
+    const updateCount = () => {
+      current += inc;
+      if (current < target) {
+        counter.innerText = current.toFixed(decimals) + suffix;
+        requestAnimationFrame(updateCount);
       } else {
-        counter.innerText = target + (counter.getAttribute("data-plus") === "true" ? "+" : "");
+        counter.innerText = target.toFixed(decimals) + suffix;
       }
     };
     updateCount();
@@ -95,16 +98,20 @@ function animateCounters() {
 }
 
 // Observer for Counters
-const statsSection = document.querySelector(".stats-section");
-if (statsSection) {
-  const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      animateCounters();
-      observer.unobserve(statsSection);
+const observerOptions = { threshold: 0.5 };
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll(".stat-number, .stat-num");
+      animateCounters(counters);
+      statsObserver.unobserve(entry.target);
     }
-  }, { threshold: 0.5 });
-  observer.observe(statsSection);
-}
+  });
+}, observerOptions);
+
+document.querySelectorAll(".impact-section, .stats-section, .education").forEach(section => {
+  statsObserver.observe(section);
+});
 
 if (window.lucide) {
   window.lucide.createIcons();
