@@ -7,6 +7,17 @@ const enquiryForm = document.querySelector("#enquiry-form");
 let currentSlide = 0;
 let timerId;
 
+function finishLoading() {
+  window.setTimeout(() => {
+    document.body.classList.add("is-loaded");
+  }, 650);
+}
+
+window.addEventListener("load", finishLoading);
+window.addEventListener("DOMContentLoaded", () => {
+  window.setTimeout(finishLoading, 1400);
+});
+
 function showSlide(index) {
   currentSlide = (index + slides.length) % slides.length;
   slides.forEach((slide, slideIndex) => {
@@ -51,6 +62,40 @@ enquiryForm?.addEventListener("submit", (event) => {
 });
 
 startSlider();
+
+// Counter Animation
+function animateCounters() {
+  const counters = document.querySelectorAll(".stat-number");
+  const speed = 200;
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute("data-target");
+      const count = +counter.innerText.replace("+", "");
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + inc) + (counter.innerText.includes("+") ? "+" : "");
+        setTimeout(updateCount, 1);
+      } else {
+        counter.innerText = target + (counter.getAttribute("data-plus") === "true" ? "+" : "");
+      }
+    };
+    updateCount();
+  });
+}
+
+// Observer for Counters
+const statsSection = document.querySelector(".stats-section");
+if (statsSection) {
+  const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      observer.unobserve(statsSection);
+    }
+  }, { threshold: 0.5 });
+  observer.observe(statsSection);
+}
 
 if (window.lucide) {
   window.lucide.createIcons();

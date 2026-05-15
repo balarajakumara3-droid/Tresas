@@ -1,0 +1,25 @@
+<svg width="600" height="150" viewBox="0 0 600 150" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+  <!-- Majestic Taller Shield Design -->
+  <g transform="translate(15, 8) scale(0.31)">
+    <!-- Taller Shield Body -->
+    <path d="M50,0 L350,0 L350,300 C350,420 200,520 200,520 C200,520 50,420 50,300 Z" fill="#0c2340"/>
+    
+    <!-- Gold Top Bar -->
+    <path d="M50,0 L350,0 L350,25 L50,25 Z" fill="#d4a843"/>
+    
+    <!-- Gold Borders -->
+    <path d="M50,0 L50,300" stroke="#d4a843" stroke-width="8" fill="none"/>
+    <path d="M350,0 L350,300" stroke="#d4a843" stroke-width="8" fill="none"/>
+    
+    <!-- Central "T" - Sharp Serif -->
+    <text x="200" y="320" text-anchor="middle" fill="white" font-size="180" font-weight="900" font-family="'Playfair Display', Georgia, serif">T</text>
+    
+    <!-- Thicker Gold Arc -->
+    <path d="M80,360 Q200,430 320,360" stroke="#d4a843" stroke-width="12" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography with Taller Presence -->
+  <text x="142" y="82" fill="#0c2340" font-size="76" font-weight="800" font-family="'Playfair Display', Georgia, serif" letter-spacing="-1">Tresas</text>
+  <text x="145" y="118" fill="#5d6d7e" font-size="22" font-weight="500" font-family="'Inter', sans-serif" letter-spacing="4">MATRICULATION SCHOOL</text>
+  <text x="145" y="144" fill="#7f8c8d" font-size="16" font-weight="600" font-family="'Inter', sans-serif" letter-spacing="1.5">Nagercoil · Tamil Nadu</text>
+</svg>

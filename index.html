@@ -3,25 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tresas Matriculation School | Nagercoil</title>
+    <title>Tresas Matriculation School | Progress to Perfection</title>
     <meta
       name="description"
-      content="Tresas Matriculation School in Nagercoil offers student-centered learning, strong academics, activities, and inclusive care for every child."
+      content="Tresas Matriculation School provides quality education with a focus on holistic development, JEE/NEET coaching, and building bright futures in Nagercoil."
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <a class="whatsapp-float" href="#contact" aria-label="Contact Tresas Matriculation School">
+    <div class="page-loader" aria-label="Loading Tresas Matriculation School">
+      <img src="tresas_logo_option2_fixed.svg" alt="" aria-hidden="true">
+      <span></span>
+    </div>
+
+    <a class="whatsapp-float" href="https://wa.me/917867991119" aria-label="Contact Tresas Matriculation School">
       <i data-lucide="message-circle" aria-hidden="true"></i>
     </a>
 
     <header class="site-header">
       <div class="topbar">
         <div class="container topbar-inner">
-          <a href="https://maps.google.com/?q=14%2C%20Church%20St%2C%20Vetha%20Nagar%2C%20Nagercoil%2C%20Tamil%20Nadu%20629002" target="_blank" rel="noreferrer">
+          <a href="https://maps.google.com/?q=14%2C+Church+St%2C+Vetha+Nagar%2C+Nagercoil%2C+Tamil+Nadu+629002" target="_blank" rel="noreferrer">
             <i data-lucide="map-pin" aria-hidden="true"></i>
             14, Church St, Vetha Nagar, Nagercoil, Tamil Nadu 629002
           </a>
@@ -36,60 +41,75 @@
 
       <nav class="navbar" aria-label="Primary navigation">
         <div class="container nav-inner">
-          <a class="brand" href="#">
-            <span class="brand-mark">T</span>
-            <span>
-              <strong>Tresas</strong>
-              <small>Matriculation School</small>
-            </span>
+          <a class="brand" href="index.html">
+            <img src="tresas_logo_option2_fixed.svg" alt="Tresas Matriculation School" class="brand-logo">
           </a>
+
+
 
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
             <i data-lucide="menu" aria-hidden="true"></i>
           </button>
 
           <ul class="nav-menu" id="primary-menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li class="has-menu">
-              <a href="#about">Academic</a>
+              <a href="about.html">Academic <i data-lucide="chevron-down" aria-hidden="true"></i></a>
               <ul>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="#learning">Our Program</a></li>
                 <li><a href="#campus">Campus Resources</a></li>
               </ul>
             </li>
             <li class="has-menu">
-              <a href="#chronicles">Media Center</a>
+              <a href="#chronicles">Media Center <i data-lucide="chevron-down" aria-hidden="true"></i></a>
               <ul>
                 <li><a href="#chronicles">Campus Chronicles</a></li>
                 <li><a href="#campus">Gallery</a></li>
-                <li><a href="#contact">Parent Enquiry</a></li>
+                <li><a href="contact.html">Parent Enquiry</a></li>
               </ul>
             </li>
-            <li><a href="#learning">School Life</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-trigger">
+                School Life <i data-lucide="chevron-down" aria-hidden="true"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Activities</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Student Council</a></li>
+                <li><a href="#">Sports</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
 
-          <a class="nav-cta" href="#enquiry">
-            <i data-lucide="user-plus" aria-hidden="true"></i>
-            Admission 2026-2027
-          </a>
+          <div class="nav-actions">
+            <a href="admission.html" class="btn-admission">
+              <i data-lucide="user-plus" aria-hidden="true"></i>
+              Admission 2026-2027
+            </a>
+          </div>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="stack-showcase" aria-label="Tresas school photo stack">
+      <section class="stack-showcase landing-hero" aria-label="Tresas Matriculation School landing">
         <div class="container stack-inner">
           <div class="stack-copy">
-            <p class="eyebrow">Tresas Matriculation School</p>
-            <h1>Learning spaces made for bright futures</h1>
-            <a href="#enquiry" class="button button-primary">Admission Enquiry <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <img src="tresas_logo_option2_fixed.svg" alt="Tresas Matriculation School" class="hero-logo">
+            <p class="eyebrow">Admissions Open 2026-2027</p>
+            <h1>Tresas Matriculation School</h1>
+            <p class="hero-intro">A calm, caring campus in Nagercoil where children grow with strong academics, values, and confidence.</p>
+            <div class="button-row">
+              <a href="#enquiry" class="button button-primary">Admission Enquiry <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              <a href="about.html" class="button button-light">About School</a>
+            </div>
           </div>
           <div class="photo-stack">
-            <img class="stack-img stack-img-main" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=85" alt="Teacher guiding students in a classroom">
-            <img class="stack-img stack-img-top" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=700&q=85" alt="Students learning together">
-            <img class="stack-img stack-img-bottom" src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=700&q=85" alt="Children doing classroom activities">
+            <img class="stack-img stack-img-main" src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=900&q=85" alt="Tresas school building entrance">
+            <img class="stack-img stack-img-top" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=85" alt="Students in classroom">
+            <img class="stack-img stack-img-bottom" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=700&q=85" alt="Learning activities">
           </div>
         </div>
       </section>
@@ -98,8 +118,8 @@
         <div class="hero-slider" data-slider>
           <article class="hero-slide hero-slide-1 is-active">
             <div class="container hero-content">
-              <p>Admissions Open</p>
-              <h1>Quality Education</h1>
+              <p>Admissions Open 2026-27</p>
+              <h1>Building Bright<br>Futures</h1>
               <a href="#about" class="button button-gold">Learn More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
             </div>
             <div class="hero-visual" aria-hidden="true">
@@ -109,8 +129,8 @@
           <article class="hero-slide hero-slide-2">
             <div class="container hero-content">
               <p>Tresas Matriculation School</p>
-              <h1>Building<br>Bright Futures</h1>
-              <a href="#learning" class="button button-gold">Learn More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              <h1>Quality Education<br>For All</h1>
+              <a href="about.html" class="button button-gold">Learn More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
             </div>
             <div class="hero-visual" aria-hidden="true">
               <span></span><span></span><span></span>
@@ -118,8 +138,8 @@
           </article>
           <article class="hero-slide hero-slide-3">
             <div class="container hero-content">
-              <p>Every Child Matters</p>
-              <h1>Quality Education<br>for Every Child</h1>
+              <p>Progress to Perfection</p>
+              <h1>Innovative Teaching<br>& Learning</h1>
               <a href="#enquiry" class="button button-gold">Enquire Now <i data-lucide="arrow-right" aria-hidden="true"></i></a>
             </div>
             <div class="hero-visual" aria-hidden="true">
@@ -129,8 +149,33 @@
         </div>
 
         <div class="hero-controls" aria-label="Hero controls">
-          <button type="button" data-prev aria-label="Previous slide"><i data-lucide="arrow-down-left" aria-hidden="true"></i></button>
-          <button type="button" data-next aria-label="Next slide"><i data-lucide="arrow-up-right" aria-hidden="true"></i></button>
+          <button type="button" data-prev aria-label="Previous slide"><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+          <button type="button" data-next aria-label="Next slide"><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      <section class="stats-section section-pad">
+        <div class="container stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="calendar" aria-hidden="true"></i></div>
+            <div class="stat-number" data-target="39" data-plus="true">0+</div>
+            <div class="stat-label">Years of Excellence</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="users" aria-hidden="true"></i></div>
+            <div class="stat-number" data-target="3500" data-plus="true">0+</div>
+            <div class="stat-label">Students Annually</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="award" aria-hidden="true"></i></div>
+            <div class="stat-number" data-target="50" data-plus="true">0+</div>
+            <div class="stat-label">Awards Received</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i data-lucide="graduation-cap" aria-hidden="true"></i></div>
+            <div class="stat-number" data-target="100" data-plus="false">0</div>
+            <div class="stat-label">% Result Track</div>
+          </div>
         </div>
       </section>
 
@@ -163,7 +208,7 @@
         <div class="container">
           <div class="section-heading center">
             <h2>Welcome to Tresas Matriculation School</h2>
-            <p>Excellence in education for confident, capable, and compassionate learners in Nagercoil.</p>
+            <p>A legacy of excellence, fostering confident and compassionate learners in Nagercoil.</p>
           </div>
 
           <div class="split">
@@ -176,12 +221,33 @@
             </div>
             <div class="welcome-copy">
               <p>
-                Tresas Matriculation School is built around a simple promise: every student should feel known, challenged, and encouraged. Our classrooms combine strong academic foundations with activities that develop curiosity, confidence, communication, and character.
+                Tresas Matriculation School is more than just an educational institution; it is a community where every student is encouraged to reach their full potential. Our school has been a beacon of quality education for over 25 years.
               </p>
               <p>
-                With attentive teachers, structured learning, and a warm school culture, we help children discover their strengths and prepare for the next stage of life with discipline, kindness, and ambition.
+                We provide a supportive and inclusive learning environment that focuses on academic rigor, character building, and innovative teaching methods. Our mission is to guide students from "Progress to Perfection."
               </p>
               <div class="ticker-title">Tresas Matriculation School</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vision section-pad">
+        <div class="container two-col align-center">
+          <div class="vision-image">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=85" alt="Students learning at Tresas">
+          </div>
+          <div class="vision-copy">
+            <p class="eyebrow">Our Vision</p>
+            <h2>Empowering Every Child</h2>
+            <p>
+              At Tresas Matriculation School, our vision is to provide a transformative education that empowers students to become lifelong learners, critical thinkers, and responsible global citizens.
+            </p>
+            <p>
+              We believe in nurturing the unique talents of every child, ensuring that "No Child is Left Behind" on their journey toward excellence.
+            </p>
+            <div class="button-row">
+              <a href="about.html" class="button button-primary">Read More About Us</a>
             </div>
           </div>
         </div>
@@ -230,15 +296,15 @@
           </form>
 
           <div class="learning-copy" id="learning">
-            <p class="eyebrow">Learning Beyond Classrooms / Boundaries</p>
-            <h2>Play As You Learn</h2>
+            <p class="eyebrow">Integrated Learning & Coaching</p>
+            <h2>JEE / NEET Integrated Program</h2>
             <p>
-              At Tresas Matriculation School, learning is more than academics. Students learn through projects, discussion, play, reading, practice, sport, art, and service, so every lesson becomes part of a larger journey of discovery.
+              We offer specialized coaching for competitive exams integrated with our school curriculum. Our students receive expert guidance to excel in JEE, NEET, and other foundation courses.
             </p>
             <ul class="check-list">
-              <li><i data-lucide="check-circle" aria-hidden="true"></i>Interactive lessons and activity-based learning</li>
-              <li><i data-lucide="check-circle" aria-hidden="true"></i>Balanced focus on academics, values, and confidence</li>
-              <li><i data-lucide="check-circle" aria-hidden="true"></i>Personal attention for every learner</li>
+              <li><i data-lucide="check-circle" aria-hidden="true"></i>Expert faculty from premier institutions</li>
+              <li><i data-lucide="check-circle" aria-hidden="true"></i>Comprehensive study materials and mock tests</li>
+              <li><i data-lucide="check-circle" aria-hidden="true"></i>Personalized attention and doubt-clearing sessions</li>
             </ul>
           </div>
         </div>
@@ -247,8 +313,8 @@
       <section class="campus" id="campus" aria-label="Campus life">
         <div class="campus-grid">
           <div class="campus-panel">
-            <i data-lucide="landmark" aria-hidden="true"></i>
-            <span>Tresas School</span>
+            <i data-lucide="school" aria-hidden="true"></i>
+            <span>Main Campus</span>
           </div>
           <div class="campus-copy">
             <p class="eyebrow">Discover, Learn and Grow</p>
@@ -261,7 +327,7 @@
             </p>
           </div>
           <div class="campus-panel campus-panel-alt">
-            <i data-lucide="users-round" aria-hidden="true"></i>
+            <i data-lucide="map" aria-hidden="true"></i>
             <span>Nagercoil</span>
           </div>
         </div>
@@ -360,15 +426,13 @@
     <footer class="footer" id="contact">
       <div class="container footer-grid">
         <div>
-          <a class="brand footer-brand" href="#">
-            <span class="brand-mark">T</span>
-            <span>
-              <strong>Tresas</strong>
-              <small>Matriculation School</small>
-            </span>
+          <a class="brand footer-brand" href="index.html">
+            <img src="tresas_logo_option2_fixed.svg" alt="Tresas Matriculation School" class="brand-logo">
           </a>
+
+
           <p>
-            Education is not only about books; it is about building confidence, discipline, curiosity, and a meaningful future for every child.
+            Dedicated to providing quality education and fostering holistic development. Our commitment to excellence shapes the leaders of tomorrow.
           </p>
         </div>
         <div>
@@ -379,8 +443,12 @@
               14, Church St, Vetha Nagar, Nagercoil, Tamil Nadu 629002
             </li>
             <li>
-              <i data-lucide="clock" aria-hidden="true"></i>
-              Monday to Saturday, 8:30 AM - 4:30 PM
+              <i data-lucide="phone" aria-hidden="true"></i>
+              +91 84386 59762
+            </li>
+            <li>
+              <i data-lucide="mail" aria-hidden="true"></i>
+              tresasmatric@gmail.com
             </li>
           </ul>
         </div>
