@@ -129,3 +129,37 @@ const fadeObserver = new IntersectionObserver(entries => {
 }, fadeObserverOptions);
 
 document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+// Contact Form Handler
+function handleContactSubmit() {
+  const name = document.getElementById('f-name-v2')?.value.trim();
+  const email = document.getElementById('f-email-v2')?.value.trim();
+  const subject = document.getElementById('f-subject-v2')?.value;
+  const msg = document.getElementById('f-msg-v2')?.value.trim();
+  
+  if (!name || !email || !subject || !msg) {
+    alert('Please fill all required fields (*)');
+    return;
+  }
+  
+  const btn = document.querySelector('.btn-submit-v2');
+  if (!btn) return;
+
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<i data-lucide="check"></i> Message Sent!';
+  if (window.lucide) window.lucide.createIcons();
+  btn.style.backgroundColor = 'var(--green)';
+  
+  setTimeout(() => {
+    btn.innerHTML = originalText;
+    btn.style.backgroundColor = '';
+    if (window.lucide) window.lucide.createIcons();
+    
+    // Reset form
+    const inputs = ['f-name-v2', 'f-email-v2', 'f-phone-v2', 'f-subject-v2', 'f-msg-v2'];
+    inputs.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+  }, 3000);
+}

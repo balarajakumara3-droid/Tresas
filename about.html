@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="about-page">
   <div class="page-loader" aria-label="Loading Tresas Matriculation School">
     <img src="tresas_logo_option2_fixed.svg" alt="" aria-hidden="true">
     <span></span>
@@ -60,8 +61,6 @@
           <img src="tresas_logo_option2_fixed.svg" alt="Tresas Matriculation School" class="brand-logo">
         </a>
 
-
-
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"
           aria-label="Toggle menu">
           <i data-lucide="menu" aria-hidden="true"></i>
@@ -81,7 +80,7 @@
             <a href="index.html#chronicles">Media Center <i data-lucide="chevron-down" aria-hidden="true"></i></a>
             <ul>
               <li><a href="index.html#chronicles">Campus Chronicles</a></li>
-              <li><a href="index.html#campus">Gallery</a></li>
+              <li><a href="index.html#gallery">Gallery</a></li>
               <li><a href="contact.html">Parent Enquiry</a></li>
             </ul>
           </li>
@@ -110,90 +109,105 @@
   </header>
 
   <main>
-    <section class="page-hero section-pad">
-      <div class="container">
-        <p class="eyebrow">Discover Our Legacy</p>
-        <h1>About Us</h1>
-      </div>
-    </section>
-
-    <section class="foundation section-pad">
-      <div class="container two-col align-center">
-        <div class="foundation-image">
-          <img src="assets/welcome-students.jpg"
-            alt="Students at Tresas Matriculation School">
-        </div>
-        <div class="foundation-copy">
-          <p class="eyebrow">Our Foundation</p>
-          <h2>A Space Where No Child is Left Behind</h2>
-          <p>
-            Tresas Matriculation School was founded with a singular vision: to create an educational environment where
-            every student, regardless of their starting point, has the opportunity to excel.
-          </p>
-          <p>
-            For over 25 years, we have remained committed to this philosophy, evolving into one of Nagercoil's most
-            respected institutions. Our approach combines traditional values with modern pedagogical techniques to
-            ensure that our students are prepared for the challenges of the 21st century.
-          </p>
+    <!-- SECTION 1 — Banner / Hero Header -->
+    <section class="about-hero">
+      <div class="about-hero-overlay"></div>
+      <div class="container about-hero-content">
+        <p class="eyebrow-gold-v2 fade-up d1">DISCOVER OUR LEGACY</p>
+        <h1 class="fade-up d2">About Us</h1>
+        <p class="about-hero-subtitle fade-up d3">Shaping futures, building character, inspiring excellence — since 1986</p>
+        <div class="about-hero-badges fade-up d3">
+          <span class="about-badge-pill"><i class="ti ti-calendar"></i> Est. 1986</span>
+          <span class="about-badge-pill"><i class="ti ti-map-pin"></i> Nagercoil</span>
+          <span class="about-badge-pill"><i class="ti ti-users"></i> 3500+ Students</span>
+          <span class="about-badge-pill"><i class="ti ti-award"></i> 50+ Awards</span>
         </div>
       </div>
     </section>
 
-    <section class="vision-mission section-pad">
+    <!-- SECTION 2 — Foundation / Story -->
+    <section class="about-foundation">
+      <div class="container about-foundation-grid">
+        <div class="about-foundation-image fade-up d1">
+          <div class="about-img-frame">
+            <img src="assets/gallery-students.jpg" alt="Students at Tresas Matriculation School" style="width:100%; height:100%; object-fit:cover; display:block;">
+          </div>
+          <div class="about-badge-gold">
+            <span class="about-badge-num">39+</span>
+            <span class="about-badge-label">Years of Excellence</span>
+          </div>
+          <div class="about-badge-white">
+            <i class="ti ti-award"></i>
+            <span>50+ Awards<br>Received</span>
+          </div>
+        </div>
+        <div class="about-foundation-content fade-up d2">
+          <p class="eyebrow-green-v2">OUR FOUNDATION</p>
+          <h2>A Space Where <span class="text-gold">No Child</span> Is Left Behind</h2>
+          <p class="text-gray-v2">Tresas Matriculation School was founded with a singular vision: to create an educational environment where every student, regardless of their starting point, has the opportunity to excel.</p>
+          <p class="text-gray-v2">For nearly four decades, we have remained committed to this philosophy, evolving into one of Nagercoil's most respected institutions. Our approach combines traditional values with modern pedagogical techniques to ensure that our students are prepared for the challenges of the 21st century.</p>
+          <blockquote class="about-blockquote-v2">
+            "Progress to Perfection — our students are prepared for the challenges of the 21st century."
+          </blockquote>
+          <a href="#" class="btn-navy-pill-v2">Our Story →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 — Vision & Mission Cards -->
+    <section class="about-vision-mission">
       <div class="container">
-        <div class="tabs-container">
-          <div class="tab-list" role="tablist">
-            <button class="tab-button is-active" role="tab" aria-selected="true" data-tab="vision">Vision &
-              Mission</button>
-            <button class="tab-button" role="tab" aria-selected="false" data-tab="approach">Our Signature
-              Approach</button>
+        <div class="section-header-center fade-up d1">
+          <p class="eyebrow-green-v2">WHAT DRIVES US</p>
+          <h2>Our <span class="text-gold">Vision</span> & Mission</h2>
+        </div>
+        <div class="about-vm-grid">
+          <div class="about-vm-card card-navy fade-up d2">
+            <div class="vm-icon-box"><i class="ti ti-eye"></i></div>
+            <h3>Our Vision</h3>
+            <p>To provide a transformative education that empowers students to become lifelong learners, critical thinkers, and responsible global citizens.</p>
+            <blockquote class="vm-quote-gold-v2">"Empowering minds for a brighter tomorrow."</blockquote>
+            <div class="card-accent-bar-v2"></div>
           </div>
-
-          <div class="tab-content is-active" id="vision" role="tabpanel">
-            <div class="two-col">
-              <div class="vision-card">
-                <div class="icon-box"><i data-lucide="eye" aria-hidden="true"></i></div>
-                <h3>Our Vision</h3>
-                <p>To provide a transformative education that empowers students to become lifelong learners, critical
-                  thinkers, and responsible global citizens.</p>
-              </div>
-              <div class="mission-card">
-                <div class="icon-box"><i data-lucide="target" aria-hidden="true"></i></div>
-                <h3>Our Mission</h3>
-                <p>To cultivate a nurturing and inclusive environment that fosters academic excellence, creativity, and
-                  character development.</p>
-              </div>
-            </div>
+          <div class="about-vm-card card-green fade-up d3">
+            <div class="vm-icon-box"><i class="ti ti-target"></i></div>
+            <h3>Our Mission</h3>
+            <p>To cultivate a nurturing and inclusive environment that fosters academic excellence, creativity, and character development in every child.</p>
+            <blockquote class="vm-quote-gold-v2">"Nurturing every talent to its full potential."</blockquote>
+            <div class="card-accent-bar-v2"></div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="tab-content" id="approach" role="tabpanel">
-            <div class="approach-grid">
-              <div class="approach-item">
-                <i data-lucide="book-open" aria-hidden="true"></i>
-                <h4>Pursuit of Knowledge</h4>
-                <p>Moving beyond textbooks to foster life skills, confidence, and curiosity.</p>
-              </div>
-              <div class="approach-item">
-                <i data-lucide="smile" aria-hidden="true"></i>
-                <h4>Holistic Development</h4>
-                <p>Focusing on the intellectual, emotional, social, and physical well-being of every student.</p>
-              </div>
-              <div class="approach-item">
-                <i data-lucide="refresh-cw" aria-hidden="true"></i>
-                <h4>Learning Reinvented</h4>
-                <p>Using engaging, interactive methodologies like project-based learning and digital resources.</p>
-              </div>
-              <div class="approach-item">
-                <i data-lucide="heart" aria-hidden="true"></i>
-                <h4>Ethics and Values</h4>
-                <p>Instilling discipline, respect, and integrity as the foundation of education.</p>
-              </div>
-              <div class="approach-item">
-                <i data-lucide="leaf" aria-hidden="true"></i>
-                <h4>Fostering Environment</h4>
-                <p>A serene, green campus that encourages learning in harmony with nature.</p>
-              </div>
-            </div>
+    <!-- SECTION 4 — Signature Approach Cards -->
+    <section class="about-approach">
+      <div class="container">
+        <div class="section-header-center fade-up d1">
+          <p class="eyebrow-green-v2">HOW WE TEACH</p>
+          <h2>Our <span class="text-gold">Signature</span> Approach</h2>
+        </div>
+        <div class="about-approach-grid">
+          <div class="approach-card fade-up d1">
+            <span class="approach-num">01</span>
+            <div class="approach-icon"><i class="ti ti-book"></i></div>
+            <h4>Pursuit of Knowledge</h4>
+            <p>Moving beyond textbooks to foster life skills, confidence, and curiosity in every learner.</p>
+            <div class="card-accent-bar-v2"></div>
+          </div>
+          <div class="approach-card fade-up d2">
+            <span class="approach-num">02</span>
+            <div class="approach-icon"><i class="ti ti-mood-smile"></i></div>
+            <h4>Holistic Development</h4>
+            <p>Focusing on the intellectual, emotional, social, and physical well-being of every student.</p>
+            <div class="card-accent-bar-v2"></div>
+          </div>
+          <div class="approach-card fade-up d3">
+            <span class="approach-num">03</span>
+            <div class="approach-icon"><i class="ti ti-refresh"></i></div>
+            <h4>Learning Reinvented</h4>
+            <p>Using engaging, interactive methodologies like project-based learning and digital resources.</p>
+            <div class="card-accent-bar-v2"></div>
           </div>
         </div>
       </div>
@@ -206,8 +220,6 @@
         <a class="brand footer-brand" href="index.html">
           <img src="tresas_logo_option2_fixed.svg" alt="Tresas Matriculation School" class="brand-logo">
         </a>
-
-
         <p>
           Dedicated to providing quality education and fostering holistic development. Our commitment to excellence
           shapes the leaders of tomorrow.
@@ -245,20 +257,6 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="script.js"></script>
-  <script>
-    // Tab Functionality
-    document.querySelectorAll('.tab-button').forEach(button => {
-      button.addEventListener('click', () => {
-        const tabId = button.getAttribute('data-tab');
-
-        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('is-active'));
-        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('is-active'));
-
-        button.classList.add('is-active');
-        document.getElementById(tabId).classList.add('is-active');
-      });
-    });
-  </script>
 </body>
 
 </html>

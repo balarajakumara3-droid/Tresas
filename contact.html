@@ -10,10 +10,12 @@
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body class="contact-page">
     <div class="page-loader" aria-label="Loading Tresas Matriculation School">
       <img src="tresas_logo_option2_fixed.svg" alt="" aria-hidden="true">
       <span></span>
@@ -57,8 +59,6 @@
             <img src="tresas_logo_option2_fixed.svg" alt="Tresas Matriculation School" class="brand-logo">
           </a>
 
-
-
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
             <i data-lucide="menu" aria-hidden="true"></i>
           </button>
@@ -77,7 +77,7 @@
               <a href="index.html#chronicles">Media Center <i data-lucide="chevron-down" aria-hidden="true"></i></a>
               <ul>
                 <li><a href="index.html#chronicles">Campus Chronicles</a></li>
-                <li><a href="index.html#campus">Gallery</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
                 <li><a href="contact.html">Parent Enquiry</a></li>
               </ul>
             </li>
@@ -106,91 +106,176 @@
     </header>
 
     <main>
-      <section class="page-hero section-pad">
-        <div class="container">
-          <p class="eyebrow">Get In Touch</p>
-          <h1>Contact Us</h1>
-        </div>
-      </section>
-
-      <section class="contact-details section-pad">
-        <div class="container">
-          <div class="contact-grid">
-            <div class="contact-info">
-              <div class="info-card">
-                <i data-lucide="map-pin" aria-hidden="true"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>14, Church St, Vetha Nagar, Nagercoil, Tamil Nadu 629002.</p>
-                </div>
-              </div>
-              <div class="info-card">
-                <i data-lucide="phone" aria-hidden="true"></i>
-                <div>
-                  <h3>Phone</h3>
-                  <p><a href="tel:+918438659762">+91 84386 59762</a></p>
-                </div>
-              </div>
-              <div class="info-card">
-                <i data-lucide="mail" aria-hidden="true"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p><a href="mailto:tresasmatric@gmail.com">tresasmatric@gmail.com</a></p>
-                </div>
-              </div>
-              <div class="info-card">
-                <i data-lucide="clock" aria-hidden="true"></i>
-                <div>
-                  <h3>Office Hours</h3>
-                  <p>Mon - Sat: 8:30 AM - 4:30 PM</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="contact-form-container">
-              <form class="enquiry-form" id="contact-page-form">
-                <h3>Send us a Message</h3>
-                <div class="form-grid">
-                  <label>
-                    <span>Name</span>
-                    <input type="text" name="name" required>
-                  </label>
-                  <label>
-                    <span>Email</span>
-                    <input type="email" name="email" required>
-                  </label>
-                  <label>
-                    <span>Phone</span>
-                    <input type="tel" name="phone" required>
-                  </label>
-                  <label>
-                    <span>Subject</span>
-                    <input type="text" name="subject" required>
-                  </label>
-                  <label class="full">
-                    <span>Message</span>
-                    <textarea name="message" rows="5" required></textarea>
-                  </label>
-                </div>
-                <button class="button button-primary" type="submit">Submit Message <i data-lucide="send" aria-hidden="true"></i></button>
-                <p class="form-note" role="status" aria-live="polite"></p>
-              </form>
-            </div>
+      <!-- ── HERO HEADER ── -->
+      <section class="contact-v2-hero">
+        <div class="hero-inner">
+          <span class="hero-label-v2 fade-up d1">Get in Touch</span>
+          <h1 class="hero-title-v2 fade-up d2">Contact Us</h1>
+          <p class="hero-sub-v2 fade-up d3">We'd love to hear from you — admissions, queries, or feedback</p>
+          <div class="hero-badges-v2 fade-up d3">
+            <span class="badge-v2 badge-gold-v2">
+              <i data-lucide="clock"></i>
+              Mon – Sat: 8:30 AM – 4:30 PM
+            </span>
+            <span class="badge-v2 badge-white-v2">
+              <i data-lucide="map-pin"></i>
+              Nagercoil, Tamil Nadu
+            </span>
           </div>
         </div>
       </section>
 
-      <section class="map-section">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4!2d77.4!3d8.18!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMTAnNDguMCJOIDc3wrAyNCcwMC4wIkU!5e0!3m2!1sen!2sin!4v1652525252525!5m2!1sen!2sin" 
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </section>
+      <!-- ── BODY ── -->
+      <div class="contact-body-v2">
+        <div class="contact-grid-v2">
+
+          <!-- LEFT: Info Cards -->
+          <div class="info-col-v2 fade-up d1">
+
+            <!-- Address -->
+            <div class="info-card-v2">
+              <div class="info-card-header-v2">
+                <div class="icon-box-v2">
+                  <i data-lucide="map-pin"></i>
+                </div>
+                <span class="info-label-v2">Address</span>
+              </div>
+              <p class="info-value-v2">14, Church St, Vetha Nagar,<br>Nagercoil, Tamil Nadu 629002</p>
+              <a class="map-link-v2" href="https://maps.google.com/?q=14+Church+St+Vetha+Nagar+Nagercoil+Tamil+Nadu" target="_blank">
+                <i data-lucide="external-link"></i>
+                Open in Google Maps
+              </a>
+            </div>
+
+            <!-- Phone -->
+            <div class="info-card-v2">
+              <div class="info-card-header-v2">
+                <div class="icon-box-v2">
+                  <i data-lucide="phone"></i>
+                </div>
+                <span class="info-label-v2">Phone</span>
+              </div>
+              <p class="info-value-v2">+91 84386 59762</p>
+              <a class="wa-btn-v2" href="https://wa.me/918438659762" target="_blank">
+                <i data-lucide="message-square"></i>
+                Chat on WhatsApp
+              </a>
+            </div>
+
+            <!-- Email -->
+            <div class="info-card-v2">
+              <div class="info-card-header-v2">
+                <div class="icon-box-v2">
+                  <i data-lucide="mail"></i>
+                </div>
+                <span class="info-label-v2">Email</span>
+              </div>
+              <p class="info-value-v2">tresasmatric@gmail.com</p>
+            </div>
+
+            <!-- Social -->
+            <div class="info-card-v2">
+              <div class="info-card-header-v2">
+                <div class="icon-box-v2">
+                  <i data-lucide="share-2"></i>
+                </div>
+                <span class="info-label-v2">Follow Us</span>
+              </div>
+              <div class="social-row-v2">
+                <a href="#" class="social-icon-v2 fb-v2" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                <a href="#" class="social-icon-v2 ig-v2" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" class="social-icon-v2 yt-v2" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                <a href="https://wa.me/918438659762" class="social-icon-v2 wa-v2" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Form -->
+          <div class="form-card-v2 fade-up d2">
+            <h2 class="form-title-v2">Send us a Message</h2>
+            <p class="form-subtitle-v2">Fill the form below and we'll get back to you within 24 hours</p>
+
+            <div class="form-row-v2">
+              <div class="form-group-v2">
+                <label>Full Name *</label>
+                <input type="text" placeholder="Your full name" id="f-name-v2"/>
+              </div>
+              <div class="form-group-v2">
+                <label>Email Address *</label>
+                <input type="email" placeholder="your@email.com" id="f-email-v2"/>
+              </div>
+            </div>
+
+            <div class="form-row-v2">
+              <div class="form-group-v2">
+                <label>Phone Number</label>
+                <input type="tel" placeholder="+91 XXXXX XXXXX" id="f-phone-v2"/>
+              </div>
+              <div class="form-group-v2">
+                <label>Subject *</label>
+                <select id="f-subject-v2">
+                  <option value="">Select a subject</option>
+                  <option>Admission Enquiry 2026–27</option>
+                  <option>Fee Structure</option>
+                  <option>Academic Query</option>
+                  <option>School Facilities</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-full-v2">
+              <div class="form-group-v2">
+                <label>Message *</label>
+                <textarea placeholder="Write your message here..." id="f-msg-v2"></textarea>
+              </div>
+            </div>
+
+            <button class="btn-submit-v2" onclick="handleContactSubmit()">
+              <i data-lucide="send"></i>
+              Submit Message
+            </button>
+
+            <div class="btn-row-v2">
+              <a class="btn-wa-v2" href="https://wa.me/918438659762" target="_blank">
+                <i data-lucide="message-circle"></i>
+                WhatsApp Us
+              </a>
+              <a class="btn-admission-v2" href="admission.html">
+                <i data-lucide="user-plus"></i>
+                Admission 2026–27
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- MAP -->
+        <div class="map-section-v2 fade-up d1">
+          <div class="map-top-v2">
+            <div class="map-address-v2">
+              <i data-lucide="map-pin"></i>
+              <div>
+                <strong>Tresas Matriculation School</strong>
+                <p>14, Church St, Vetha Nagar, Nagercoil, Tamil Nadu 629002</p>
+              </div>
+            </div>
+            <a class="open-maps-v2" href="https://maps.google.com/?q=Tresas+Matriculation+School+Nagercoil" target="_blank">
+              <i data-lucide="external-link"></i>
+              Open in Google Maps
+            </a>
+          </div>
+          <iframe
+            class="map-embed-v2"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3947.123456789!2d77.4322!3d8.1784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMTAnNDIuMyJOIDc3wrAyNSo1Ni4wIkU!5e0!3m2!1sen!2sin!4v1234567890"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Tresas Matriculation School Location">
+          </iframe>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
