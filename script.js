@@ -163,3 +163,93 @@ function handleContactSubmit() {
     });
   }, 3000);
 }
+
+// ── MULTI-STEP INTEGRATED FORM ──
+let currentEnquiryStep = 1;
+
+function nextStep() {
+  if (currentEnquiryStep === 1) {
+    const fname = document.getElementById('fname')?.value.trim();
+    const email = document.getElementById('email')?.value.trim();
+    const phone = document.getElementById('phone')?.value.trim();
+    const grade = document.getElementById('grade')?.value;
+    const program = document.getElementById('program')?.value;
+    
+    if (!fname || !email || !phone || !grade || !program) {
+      alert('Please fill all required fields (*)');
+      return;
+    }
+  }
+
+  if (currentEnquiryStep === 3) return;
+
+  // Update UI
+  document.getElementById('step' + currentEnquiryStep).style.display = 'none';
+  document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('active');
+  document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('done');
+  
+  currentEnquiryStep++;
+  
+  document.getElementById('step' + currentEnquiryStep).style.display = 'flex';
+  document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('active');
+
+  // Populate Summary
+  if (currentEnquiryStep === 3) {
+    document.getElementById('confirm-name').textContent = 
+      document.getElementById('fname').value + ' ' + document.getElementById('lname').value;
+    document.getElementById('confirm-email').textContent = document.getElementById('email').value;
+    document.getElementById('confirm-phone').textContent = document.getElementById('phone').value;
+    document.getElementById('confirm-grade').textContent = document.getElementById('grade').value;
+    document.getElementById('confirm-program').textContent = document.getElementById('program').value;
+  }
+  
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function prevStep() {
+  document.getElementById('step' + currentEnquiryStep).style.display = 'none';
+  document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('active');
+  
+  currentEnquiryStep--;
+  
+  document.getElementById('step' + currentEnquiryStep).style.display = 'flex';
+  document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('done');
+  document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('active');
+  
+  if (window.lucide) window.lucide.createIcons();
+}
+
+function submitEnquiry() {
+  const btn = document.querySelector('.btn-submit-v4');
+  const originalText = btn.innerHTML;
+  
+  btn.innerHTML = '<i data-lucide="check"></i> Enquiry Submitted!';
+  if (window.lucide) window.lucide.createIcons();
+  btn.style.backgroundColor = 'var(--navy)';
+  
+  // Show global toast if needed or alert
+  alert('Thank you! Your enquiry for the Integrated Program has been received.');
+
+  setTimeout(() => {
+    btn.innerHTML = originalText;
+    btn.style.backgroundColor = '';
+    if (window.lucide) window.lucide.createIcons();
+    
+    // Reset to Step 1
+    document.getElementById('step3').style.display = 'none';
+    document.getElementById('step3-tab').classList.remove('active', 'done');
+    document.getElementById('step2-tab').classList.remove('active', 'done');
+    document.getElementById('step1-tab').classList.remove('done');
+    document.getElementById('step1-tab').classList.add('active');
+    document.getElementById('step1').style.display = 'flex';
+    
+    // Clear inputs
+    const ids = ['fname', 'lname', 'email', 'phone', 'grade', 'program', 'msg', 'parent-name', 'parent-phone'];
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.value = '';
+    });
+    currentEnquiryStep = 1;
+    if (window.lucide) window.lucide.createIcons();
+  }, 3000);
+}
