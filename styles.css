@@ -1074,6 +1074,140 @@ textarea:focus {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.school-life-highlights {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(72px, 7vw, 104px) 0;
+  background:
+    linear-gradient(rgba(6, 16, 34, 0.78), rgba(6, 16, 34, 0.82)),
+    url("assets/gallery-classroom.jpg") center/cover;
+}
+
+.school-life-highlights::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+.school-life-showcase {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(22px, 2.3vw, 36px);
+}
+
+.school-life-card {
+  position: relative;
+  min-height: clamp(520px, 38vw, 670px);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 12px;
+  background: var(--navy);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.24);
+  transition: transform 320ms ease, box-shadow 320ms ease;
+}
+
+.school-life-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 620ms ease, filter 620ms ease;
+}
+
+.school-life-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(12, 35, 64, 0.08) 0%, rgba(12, 35, 64, 0.48) 42%, rgba(12, 35, 64, 0.92) 100%),
+    linear-gradient(45deg, rgba(49, 92, 80, 0.5), transparent 62%);
+}
+
+.school-life-card:hover img {
+  filter: saturate(1.08) contrast(1.04);
+  transform: scale(1.12);
+}
+
+.school-life-card:hover {
+  box-shadow: 0 32px 72px rgba(0, 0, 0, 0.32);
+  transform: translateY(-6px);
+}
+
+.school-life-card-content {
+  position: relative;
+  z-index: 2;
+  padding: clamp(28px, 2.8vw, 42px);
+  color: #fff;
+}
+
+.school-life-card-content span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(54px, 4.4vw, 76px);
+  height: clamp(54px, 4.4vw, 76px);
+  margin-bottom: clamp(22px, 2.3vw, 34px);
+  color: var(--navy);
+  background: var(--gold);
+  border-radius: 50%;
+  font-weight: 900;
+  font-size: clamp(17px, 1.4vw, 24px);
+}
+
+.school-life-card-content h3 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(38px, 3.1vw, 58px);
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+
+.school-life-card-content p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(18px, 1.45vw, 27px);
+  line-height: 1.48;
+}
+
+.school-life-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: clamp(26px, 2.5vw, 42px);
+  padding: clamp(14px, 1.2vw, 20px) clamp(20px, 2vw, 30px);
+  color: var(--navy);
+  background: var(--gold);
+  border-radius: 8px;
+  font-size: clamp(15px, 1.2vw, 22px);
+  font-weight: 900;
+  line-height: 1;
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.school-life-link svg,
+.school-life-link i {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.school-life-link:hover {
+  color: #fff;
+  background: var(--green);
+  transform: translateX(3px);
+}
+
 .stats-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1667,6 +1801,11 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 
+  .school-life-showcase {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   .campus-panel {
     min-height: 340px;
   }
@@ -1780,6 +1919,60 @@ textarea:focus {
 
   .campus-copy {
     padding: 48px 24px;
+  }
+
+  .school-life-section {
+    background-attachment: scroll;
+    background-color: var(--navy);
+    background-position: center top;
+  }
+
+  .school-life-highlights {
+    padding: 56px 0;
+  }
+
+  .campus-grid {
+    min-height: auto;
+  }
+
+  .campus-panel {
+    min-height: 220px;
+    padding: 28px 24px;
+  }
+
+  .campus-panel svg {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 16px;
+  }
+
+  .school-life-showcase {
+    grid-template-columns: 1fr;
+    padding-top: 8px;
+    padding-bottom: 54px;
+    gap: 22px;
+  }
+
+  .school-life-card {
+    min-height: 540px;
+  }
+
+  .school-life-card-content {
+    padding: 24px;
+  }
+
+  .school-life-card-content h3 {
+    font-size: clamp(34px, 12vw, 46px);
+  }
+
+  .school-life-card-content p {
+    font-size: 18px;
+  }
+
+  .school-life-link {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 16px;
   }
 
   .enquiry-form {
@@ -3941,4 +4134,404 @@ h2,
   font-size: 14px;
   color: var(--muted);
   line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .topbar {
+    padding: 8px 0;
+  }
+
+  .topbar-contact {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .topbar-contact .separator {
+    display: none;
+  }
+
+  .topbar a {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .nav-inner {
+    min-height: 76px;
+  }
+
+  .brand-logo {
+    width: 58px;
+    height: 58px;
+  }
+
+  .hero-banner {
+    height: auto;
+    min-height: calc(100svh - 76px);
+  }
+
+  .hero-slide {
+    min-height: calc(100svh - 76px);
+    align-items: center;
+    padding: 54px 0 118px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.25rem, 13vw, 3.25rem);
+    line-height: 0.96;
+    margin-bottom: 1rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.45;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-learn {
+    width: min(100%, 260px);
+    justify-content: center;
+    padding: 13px 20px;
+    text-align: center;
+  }
+
+  .hero-controls {
+    right: 50%;
+    bottom: 82px;
+    transform: translateX(50%);
+  }
+
+  .ctrl-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .education .two-col,
+  .cta-inner,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-panel {
+    min-height: 260px;
+    padding: 46px 24px;
+  }
+
+  .education .section-heading,
+  .education .stats-row,
+  .education .mission-actions {
+    width: 100%;
+  }
+
+  .education h2 {
+    max-width: none;
+    font-size: clamp(2rem, 10vw, 2.6rem);
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .btn-learn-more,
+  .btn-visit-link {
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .admission-float {
+    right: 18px;
+    bottom: 18px;
+    width: 96px;
+    height: 62px;
+    font-size: 13px;
+  }
+
+  .whatsapp-float {
+    left: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .hero-content {
+    max-width: 320px;
+  }
+
+  .integrated-program-section .container {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .form-body-v3,
+  .form-header-v3 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .progress-step-v3 {
+    font-size: 10px;
+  }
+
+  .schedule-row-v3 {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Exam CTA and footer refinement */
+.exam-cta {
+  position: relative;
+  padding: clamp(72px, 8vw, 112px) 0 0;
+  background:
+    radial-gradient(circle at 78% 14%, rgba(212, 168, 67, 0.18), transparent 25%),
+    linear-gradient(130deg, #0c2340 0%, #173343 46%, #315c50 100%);
+}
+
+.cta-inner {
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+  gap: clamp(42px, 6vw, 84px);
+}
+
+.exam-copy {
+  max-width: 720px;
+}
+
+.exam-cta h2 {
+  max-width: 780px;
+  font-size: clamp(44px, 4.8vw, 74px);
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.exam-cta p {
+  max-width: 720px;
+  margin: 28px 0 28px;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.55;
+}
+
+.exam-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-weight: 900;
+  font-size: 17px;
+}
+
+.exam-link svg,
+.exam-link i {
+  width: 28px;
+  height: 28px;
+  transition: transform 220ms ease;
+}
+
+.exam-link:hover svg,
+.exam-link:hover i {
+  transform: translateX(5px);
+}
+
+.cta-panel {
+  min-height: 360px;
+  height: clamp(330px, 30vw, 430px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 66% 24%, rgba(212, 168, 67, 0.28), transparent 25%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.05));
+}
+
+.cta-panel strong {
+  font-size: clamp(40px, 4.1vw, 68px);
+  text-align: center;
+}
+
+.cta-panel span {
+  font-size: clamp(16px, 1.4vw, 22px);
+}
+
+.memory-line {
+  margin-top: clamp(52px, 7vw, 86px);
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #0e1025 0%, #0b0d1f 100%);
+}
+
+.footer::before {
+  content: "Endless friendships, unforgettable memories";
+  position: absolute;
+  top: -24px;
+  left: -48px;
+  right: -48px;
+  color: rgba(255, 255, 255, 0.06);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(78px, 9vw, 148px);
+  font-weight: 800;
+  line-height: 0.8;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.footer-grid,
+.copyright {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-grid {
+  padding: clamp(58px, 7vw, 86px) 0 58px;
+  gap: clamp(42px, 6vw, 84px);
+}
+
+.footer-brand {
+  width: 132px;
+  height: 132px;
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 28px;
+  background: #fff;
+}
+
+.footer .brand-logo {
+  width: 104px;
+  height: 104px;
+}
+
+.footer h3 {
+  font-size: clamp(24px, 2vw, 32px);
+  margin-bottom: 24px;
+}
+
+.footer p,
+.footer-list li {
+  font-size: clamp(16px, 1.25vw, 20px);
+  line-height: 1.55;
+}
+
+.footer-list {
+  gap: 22px;
+}
+
+.footer-social {
+  gap: 14px;
+}
+
+.footer-social a {
+  width: 46px;
+  height: 46px;
+  transition: background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.footer-social a:hover {
+  background: rgba(212, 168, 67, 0.16);
+  border-color: rgba(212, 168, 67, 0.58);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .cta-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-copy {
+    max-width: none;
+  }
+
+  .cta-panel {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 760px) {
+  .exam-cta {
+    padding-top: 64px;
+  }
+
+  .exam-cta h2 {
+    font-size: clamp(34px, 11vw, 44px);
+  }
+
+  .exam-cta p {
+    font-size: 16px;
+    margin: 20px 0 24px;
+  }
+
+  .cta-panel {
+    height: auto;
+    min-height: 260px;
+    padding: 46px 18px;
+  }
+
+  .cta-panel strong {
+    font-size: clamp(34px, 12vw, 44px);
+  }
+
+  .memory-line {
+    margin-top: 44px;
+    font-size: clamp(44px, 16vw, 72px);
+    white-space: nowrap;
+  }
+
+  .footer::before {
+    top: -10px;
+    left: -18px;
+    font-size: 72px;
+    white-space: normal;
+  }
+
+  .footer-grid {
+    padding-top: 72px;
+    text-align: left;
+  }
+
+  .footer-brand {
+    width: 108px;
+    height: 108px;
+  }
+
+  .footer .brand-logo {
+    width: 86px;
+    height: 86px;
+  }
 }
