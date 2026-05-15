@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;700&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -255,52 +255,110 @@
       </div>
     </section>
 
-    <section class="welcome section-pad" id="about">
-      <div class="container">
-        <div class="section-heading center">
-          <h2>Welcome to Tresas Matriculation School</h2>
-          <p>A legacy of excellence, fostering confident and compassionate learners in Nagercoil.</p>
+    <section class="welcome-section" id="about">
+      <!-- Eyebrow -->
+      <p class="eyebrow-v2 fade-up d1">Our Story</p>
+
+      <!-- Heading -->
+      <h2 class="section-heading-v2 fade-up d2">
+        Welcome to <span>Tresas</span><br/>Matriculation School
+      </h2>
+      <p class="section-sub-v2 fade-up d3">
+        A legacy of excellence, fostering confident and compassionate learners in Nagercoil.
+      </p>
+
+      <div class="welcome-grid">
+        <!-- LEFT: IMAGE -->
+        <div class="image-col fade-up d2">
+          <div class="image-frame"></div>
+          <img
+            class="image-main"
+            src="assets/welcome-students.jpg"
+            alt="Students at Tresas Matriculation School Nagercoil"
+          />
+          <div class="img-badge">
+            <span class="b-num">39+</span>
+            <span class="b-label">Years of<br/>Excellence</span>
+          </div>
         </div>
 
-        <div class="split">
-          <div class="welcome-image">
-            <img src="assets/welcome-students.jpg" alt="Students learning at Tresas Matriculation School">
+        <!-- RIGHT: TEXT -->
+        <div class="text-col fade-up d3">
+          <div class="quote-block-v2">
+            "No Child is Left Behind" — we nurture the unique talents of every
+            child on their journey toward excellence.
           </div>
-          <div class="welcome-copy">
-            <p>
-              Tresas Matriculation School is more than just an educational institution; it is a community where every
-              student is encouraged to reach their full potential. Our school has been a beacon of quality education for
-              over 25 years.
-            </p>
-            <p>
-              We provide a supportive and inclusive learning environment that focuses on academic rigor, character
-              building, and innovative teaching methods. Our mission is to guide students from "Progress to Perfection."
-            </p>
-            <div class="ticker-title">Tresas Matriculation School</div>
+
+          <p class="text-para-v2">
+            Tresas Matriculation School is more than just an educational institution —
+            it is a community where every student is encouraged to reach their full
+            potential. Our school has been a beacon of quality education for over
+            <strong>39 years</strong> in Nagercoil.
+          </p>
+
+          <p class="text-para-v2">
+            We provide a supportive and inclusive learning environment focusing on
+            academic rigor, character building, and innovative teaching methods.
+            Our mission is to guide students from <strong>"Progress to Perfection."</strong>
+          </p>
+
+          <!-- Pills -->
+          <div class="pills-row-v2">
+            <div class="pill-v2">
+              <i data-lucide="star"></i>
+              Academic Excellence
+            </div>
+            <div class="pill-v2">
+              <i data-lucide="heart"></i>
+              Holistic Growth
+            </div>
+            <div class="pill-v2">
+              <i data-lucide="globe"></i>
+              Global Citizens
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-row-v2">
+            <a class="btn-primary-v3" href="about.html">Discover Our Story →</a>
+            <a class="btn-link-v3" href="admission.html">
+              Admission 2026–2027
+              <span class="arr-v2">→</span>
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="vision section-pad">
-      <div class="container two-col align-center">
-        <div class="vision-image">
-          <img src="assets/welcome-students.jpg" alt="Students learning at Tresas">
-        </div>
-        <div class="vision-copy">
-          <p class="eyebrow">Our Vision</p>
-          <h2>Empowering Every Child</h2>
-          <p>
-            At Tresas Matriculation School, our vision is to provide a transformative education that empowers students
-            to become lifelong learners, critical thinkers, and responsible global citizens.
-          </p>
-          <p>
-            We believe in nurturing the unique talents of every child, ensuring that "No Child is Left Behind" on their
-            journey toward excellence.
-          </p>
-          <div class="button-row">
-            <a href="about.html" class="button button-primary">Read More About Us</a>
+    <section class="vision-section-v2">
+      <div class="vision-v2-grid">
+        <div class="vision-v2-image-wrap">
+          <img src="assets/pexels-yogendras31-3231359.jpg" alt="Students learning at Tresas" class="vision-v2-img">
+          <div class="vision-v2-fade"></div>
+          <div class="vision-v2-badge">
+            <span class="badge-num">39+</span>
+            <span class="badge-text">Years of Excellence</span>
           </div>
+        </div>
+        
+        <div class="vision-v2-content">
+          <p class="eyebrow-tag">OUR VISION</p>
+          <h2 class="vision-v2-title">Empowering <br><span class="text-gold">Every Child</span></h2>
+          <p class="vision-v2-desc">
+            At Tresas Matriculation School, our vision is to provide a transformative education that empowers students to become lifelong learners, critical thinkers, and responsible global citizens.
+          </p>
+          
+          <blockquote class="vision-v2-quote">
+            "No Child is Left Behind" — we nurture the unique talents of every child on their journey toward excellence.
+          </blockquote>
+          
+          <div class="vision-v2-pills">
+            <span class="vision-pill"><i data-lucide="star"></i> Academic Excellence</span>
+            <span class="vision-pill"><i data-lucide="heart"></i> Holistic Growth</span>
+            <span class="vision-pill"><i data-lucide="globe"></i> Global Citizens</span>
+          </div>
+          
+          <a href="about.html" class="btn-vision-cta">Discover Our Story <i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </section>

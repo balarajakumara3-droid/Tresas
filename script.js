@@ -116,3 +116,16 @@ document.querySelectorAll(".impact-section, .stats-section, .education").forEach
 if (window.lucide) {
   window.lucide.createIcons();
 }
+
+// Fade-up Animation Observer
+const fadeObserverOptions = { threshold: 0.12 };
+const fadeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      fadeObserver.unobserve(entry.target);
+    }
+  });
+}, fadeObserverOptions);
+
+document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
