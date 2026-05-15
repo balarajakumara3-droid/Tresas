@@ -1,6 +1,6 @@
 const slides = [...document.querySelectorAll(".hero-slide")];
-const nextButton = document.querySelector("[data-next]");
-const prevButton = document.querySelector("[data-prev]");
+const nextButton = document.querySelector(".ctrl-next");
+const prevButton = document.querySelector(".ctrl-prev");
 const menuButton = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".nav-menu");
 const enquiryForm = document.querySelector("#enquiry-form");
@@ -10,22 +10,31 @@ let timerId;
 function finishLoading() {
   window.setTimeout(() => {
     document.body.classList.add("is-loaded");
+    sessionStorage.setItem("tresas-loaded", "true");
   }, 650);
 }
 
-window.addEventListener("load", finishLoading);
-window.addEventListener("DOMContentLoaded", () => {
-  window.setTimeout(finishLoading, 1400);
-});
+// Check if already loaded in this session
+if (sessionStorage.getItem("tresas-loaded")) {
+  document.body.classList.add("is-loaded-immediate");
+  document.body.classList.add("is-loaded");
+} else {
+  window.addEventListener("load", finishLoading);
+  window.addEventListener("DOMContentLoaded", () => {
+    window.setTimeout(finishLoading, 1400);
+  });
+}
 
 function showSlide(index) {
+  if (slides.length === 0) return;
   currentSlide = (index + slides.length) % slides.length;
   slides.forEach((slide, slideIndex) => {
-    slide.classList.toggle("is-active", slideIndex === currentSlide);
+    slide.classList.toggle("active", slideIndex === currentSlide);
   });
 }
 
 function startSlider() {
+  if (slides.length === 0) return;
   clearInterval(timerId);
   timerId = setInterval(() => showSlide(currentSlide + 1), 5000);
 }
