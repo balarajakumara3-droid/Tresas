@@ -1,5 +1,4 @@
 <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-  <rect width="500" height="500" fill="white"/>
 
   <!-- Shield -->
   <path d="M155,40 L345,40 L345,220 Q345,320 250,360 Q155,320 155,220 Z" fill="#0c2340"/>

@@ -8,10 +8,11 @@ let currentSlide = 0;
 let timerId;
 
 function finishLoading() {
+  // Ensure minimum 3 seconds for the cinematic animation to finish
   window.setTimeout(() => {
     document.body.classList.add("is-loaded");
     sessionStorage.setItem("tresas-loaded", "true");
-  }, 650);
+  }, 3000);
 }
 
 // Check if already loaded in this session
@@ -19,10 +20,11 @@ if (sessionStorage.getItem("tresas-loaded")) {
   document.body.classList.add("is-loaded-immediate");
   document.body.classList.add("is-loaded");
 } else {
+  // Standard load handling
   window.addEventListener("load", finishLoading);
-  window.addEventListener("DOMContentLoaded", () => {
-    window.setTimeout(finishLoading, 1400);
-  });
+  
+  // Fallback in case load event takes too long
+  window.setTimeout(finishLoading, 5000);
 }
 
 function showSlide(index) {
@@ -74,42 +76,54 @@ startSlider();
 
 // Counter Animation
 function animateCounters(elements) {
-  const speed = 200;
+  const duration = 2500; // 2.5 seconds for a premium feel
 
   elements.forEach(counter => {
+    if (counter.classList.contains('counted')) return;
+    counter.classList.add('counted');
+
     const target = parseFloat(counter.getAttribute("data-target"));
+    if (isNaN(target)) return;
+
     const suffix = counter.getAttribute("data-suffix") || (counter.getAttribute("data-plus") === "true" ? "+" : "");
     const decimals = parseInt(counter.getAttribute("data-decimals")) || 0;
     
-    let current = 0;
-    const inc = target / speed;
+    let startTime = null;
 
-    const updateCount = () => {
-      current += inc;
-      if (current < target) {
-        counter.innerText = current.toFixed(decimals) + suffix;
+    const updateCount = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      // Easing function for smoother finish (easeOutExpo-ish)
+      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      const current = easeProgress * target;
+      
+      counter.innerText = (progress === 1 ? target : current).toFixed(decimals) + suffix;
+
+      if (progress < 1) {
         requestAnimationFrame(updateCount);
-      } else {
-        counter.innerText = target.toFixed(decimals) + suffix;
       }
     };
-    updateCount();
+    requestAnimationFrame(updateCount);
   });
 }
 
 // Observer for Counters
-const observerOptions = { threshold: 0.5 };
 const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const counters = entry.target.querySelectorAll(".stat-number, .stat-num");
-      animateCounters(counters);
-      statsObserver.unobserve(entry.target);
+      if (counters.length > 0) {
+        animateCounters(counters);
+        // We only unobserve if all counters in this section are animated
+        statsObserver.unobserve(entry.target);
+      }
     }
   });
-}, observerOptions);
+}, { threshold: 0.15 }); // Lower threshold for better reliability on mobile
 
-document.querySelectorAll(".impact-section, .stats-section, .education").forEach(section => {
+document.querySelectorAll(".impact-section, .stats-section, .education, .welcome-section, .vision-section-v2").forEach(section => {
   statsObserver.observe(section);
 });
 
@@ -252,4 +266,24 @@ function submitEnquiry() {
     currentEnquiryStep = 1;
     if (window.lucide) window.lucide.createIcons();
   }, 3000);
+}
+
+// Mobile UX: Hide floating buttons when typing to avoid overlapping form fields
+const floatingButtons = document.querySelectorAll('.float-whatsapp, .float-admission');
+const inputs = document.querySelectorAll('input, textarea, select');
+
+inputs.forEach(input => {
+  input.addEventListener('focus', () => {
+    if (window.innerWidth <= 768) {
+      floatingButtons.forEach(btn => btn.classList.add('floats-hidden'));
+    }
+  });
+  input.addEventListener('blur', () => {
+    floatingButtons.forEach(btn => btn.classList.remove('floats-hidden'));
+  });
+});
+
+// Initialize Lucide icons on page load
+if (window.lucide) {
+  window.lucide.createIcons();
 }
