@@ -7,24 +7,19 @@ const enquiryForm = document.querySelector("#enquiry-form");
 let currentSlide = 0;
 let timerId;
 
-function finishLoading() {
-  // Ensure minimum 3 seconds for the cinematic animation to finish
-  window.setTimeout(() => {
-    document.body.classList.add("is-loaded");
-    sessionStorage.setItem("tresas-loaded", "true");
-  }, 3500);
+function revealSplash() {
+  document.body.classList.add("is-loaded");
+  sessionStorage.setItem("tresas-loaded", "true");
 }
 
-// Check if already loaded in this session
-if (sessionStorage.getItem("tresas-loaded")) {
-  document.body.classList.add("is-loaded-immediate");
-  document.body.classList.add("is-loaded");
+const splashScreen = document.querySelector("#splash-screen");
+
+if (!splashScreen) {
+  document.body.classList.add("is-loaded-immediate", "is-loaded");
+} else if (sessionStorage.getItem("tresas-loaded")) {
+  document.body.classList.add("is-loaded-immediate", "is-loaded");
 } else {
-  // Standard load handling
-  window.addEventListener("load", finishLoading);
-  
-  // Fallback in case load event takes too long
-  window.setTimeout(finishLoading, 5000);
+  window.setTimeout(revealSplash, 3000);
 }
 
 function showSlide(index) {

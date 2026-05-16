@@ -2137,6 +2137,7 @@ textarea:focus {
 .info-card svg {
   width: 24px;
   height: 24px;
+}
 
 
 .site-header {
@@ -4597,6 +4598,25 @@ body.is-loaded-immediate .page-loader {
 
 
 /* Cinematic Splash Screen */
+body.has-splash:not(.is-loaded) {
+  overflow: hidden;
+}
+
+body.has-splash:not(.is-loaded) .site-header,
+body.has-splash:not(.is-loaded) main,
+body.has-splash:not(.is-loaded) .float-whatsapp,
+body.has-splash:not(.is-loaded) .float-admission {
+  opacity: 0;
+}
+
+body.has-splash.is-loaded .site-header,
+body.has-splash.is-loaded main,
+body.has-splash.is-loaded .float-whatsapp,
+body.has-splash.is-loaded .float-admission {
+  opacity: 1;
+  transition: opacity 700ms ease;
+}
+
 .splash-screen {
   position: fixed;
   inset: 0;
@@ -4605,7 +4625,7 @@ body.is-loaded-immediate .page-loader {
   justify-content: center;
   align-items: center;
   background-color: #0f2044 !important; /* Forces dark navy */
-  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+  transition: opacity 900ms cubic-bezier(0.4, 0, 0.2, 1), visibility 900ms;
 }
 
 body.is-loaded .splash-screen {
@@ -4618,15 +4638,16 @@ body.is-loaded .splash-screen {
   text-align: center;
   width: 100%;
   max-width: 500px;
-  padding: 40px;
+  padding: 32px;
 }
 
 .splash-logo {
   width: 100%;
   height: auto;
-  max-width: 320px;
+  max-width: min(320px, 78vw);
   margin-bottom: 35px;
   overflow: visible;
+  filter: drop-shadow(0 24px 44px rgba(0, 0, 0, 0.28));
 }
 
 /* 1. Shield Outline - 0.5s */
@@ -4643,7 +4664,7 @@ body.is-loaded .splash-screen {
 /* Basic fade element */
 .fade-in-element {
   opacity: 0;
-  animation: fadeInElement 0.5s forwards ease-out;
+  animation: fadeInElement 0.55s forwards ease-out;
 }
 
 @keyframes fadeInElement {
@@ -4658,7 +4679,7 @@ body.is-loaded .splash-screen {
 .fade-in-down-element {
   opacity: 0;
   transform: translateY(-20px);
-  animation: fadeInDownElement 0.5s forwards ease-out;
+  animation: fadeInDownElement 0.55s forwards ease-out;
 }
 
 @keyframes fadeInDownElement {
@@ -4694,6 +4715,7 @@ body.is-loaded .splash-screen {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 4px;
+  box-shadow: 0 0 22px rgba(201, 168, 76, 0.16);
 }
 
 .loading-bar-progress {
@@ -4714,3 +4736,28 @@ body.is-loaded-immediate .splash-screen {
   transition: none !important;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body.has-splash:not(.is-loaded) {
+    overflow: auto;
+  }
+
+  .draw-path,
+  .fade-in-element,
+  .fade-in-down-element,
+  .gold-arc,
+  .loading-bar-progress {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+
+  .splash-screen {
+    transition-duration: 1ms;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-logo {
+    max-width: 285px;
+    margin-bottom: 28px;
+  }
+}
