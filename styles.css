@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -32,6 +33,11 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+section {
+  scroll-margin-top: 80px;
+  min-height: 100vh;
 }
 
 img {
