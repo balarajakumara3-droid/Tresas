@@ -12,7 +12,7 @@ function finishLoading() {
   window.setTimeout(() => {
     document.body.classList.add("is-loaded");
     sessionStorage.setItem("tresas-loaded", "true");
-  }, 650);
+  }, 3500);
 }
 
 // Check if already loaded in this session
@@ -180,7 +180,7 @@ function handleContactSubmit() {
       const el = document.getElementById(id);
       if (el) el.value = '';
     });
-  }, 650);
+  }, 3500);
 }
 
 // ── MULTI-STEP INTEGRATED FORM ──
@@ -270,7 +270,7 @@ function submitEnquiry() {
     });
     currentEnquiryStep = 1;
     initIcons();
-  }, 650);
+  }, 3500);
 }
 
 // Mobile UX: Hide floating buttons when typing to avoid overlapping form fields

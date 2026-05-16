@@ -4594,3 +4594,123 @@ body.is-loaded-immediate .page-loader {
     display: none; /* Hide button on very small screens to save space */
   }
 }
+
+
+/* Cinematic Splash Screen */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0f2044 !important; /* Forces dark navy */
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+}
+
+body.is-loaded .splash-screen {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-content {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+}
+
+.splash-logo {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+  margin-bottom: 35px;
+  overflow: visible;
+}
+
+/* 1. Shield Outline - 0.5s */
+.draw-path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawStroke 0.5s forwards ease-in-out;
+}
+
+@keyframes drawStroke {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Basic fade element */
+.fade-in-element {
+  opacity: 0;
+  animation: fadeInElement 0.5s forwards ease-out;
+}
+
+@keyframes fadeInElement {
+  to { opacity: 1; }
+}
+
+/* 2. Gold Top Border - 0.8s */
+.gold-bar { animation-delay: 0.8s; }
+.gold-border { animation-delay: 0.8s; }
+
+/* 3. T Letter - 1s */
+.fade-in-down-element {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInDownElement 0.5s forwards ease-out;
+}
+
+@keyframes fadeInDownElement {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.letter-t { animation-delay: 1.0s; }
+
+/* 4. Gold Curved Line - 1.2s */
+.gold-arc {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawStroke 0.5s forwards ease-in-out;
+  animation-delay: 1.2s;
+}
+
+/* 5. TRESAS text - 1.4s */
+.text-tresas { animation-delay: 1.4s; }
+
+/* 6. MATRICULATION SCHOOL - 1.6s */
+.text-school { animation-delay: 1.6s; }
+
+/* 7. Nagercoil - 1.8s */
+.text-location { animation-delay: 1.8s; }
+
+/* 8. Gold loading bar - 2s */
+.loading-bar-container {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.loading-bar-progress {
+  width: 0%;
+  height: 100%;
+  background: #C9A84C;
+  animation: fillBar 1.5s forwards ease-in-out;
+  animation-delay: 2.0s;
+}
+
+@keyframes fillBar {
+  to { width: 100%; }
+}
+
+/* Immediate load if already seen */
+body.is-loaded-immediate .splash-screen {
+  display: none !important;
+  transition: none !important;
+}
+
