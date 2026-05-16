@@ -4497,13 +4497,15 @@ h2,
 .splash-screen {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 99999;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0f2044;
+  background-color: #0f2044 !important;
+  background: #0f2044 !important;
   transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
 }
+
 
 body.is-loaded .splash-screen {
   opacity: 0;
