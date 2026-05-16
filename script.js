@@ -33,7 +33,7 @@ function showSlide(index) {
 function startSlider() {
   if (slides.length === 0) return;
   clearInterval(timerId);
-  timerId = setInterval(() => showSlide(currentSlide + 1), 5000);
+  timerId = setInterval(() => showSlide(currentSlide + 1), 6000);
 }
 
 nextButton?.addEventListener("click", () => {
@@ -178,101 +178,51 @@ function handleContactSubmit() {
   }, 3500);
 }
 
-// ── MULTI-STEP INTEGRATED FORM ──
-let currentEnquiryStep = 1;
-
-function nextStep() {
-  if (currentEnquiryStep === 1) {
-    const fname = document.getElementById('fname')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const phone = document.getElementById('phone')?.value.trim();
-    const grade = document.getElementById('grade')?.value;
-    const program = document.getElementById('program')?.value;
-    
-    if (!fname || !email || !phone || !grade || !program) {
-      alert('Please fill all required fields (*)');
-      return;
-    }
-  }
-
-  if (currentEnquiryStep === 3) return;
-
-  // Update UI
-  document.getElementById('step' + currentEnquiryStep).style.display = 'none';
-  document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('active');
-  document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('done');
+// ── SIMPLE ADMISSION ENQUIRY HANDLER ──
+function handleSimpleEnquiry(event) {
+  event.preventDefault();
   
-  currentEnquiryStep++;
+  const name = document.getElementById('student-name')?.value.trim();
+  const email = document.getElementById('parent-email')?.value.trim();
+  const phone = document.getElementById('parent-phone')?.value.trim();
+  const grade = document.getElementById('grade-seeking')?.value;
   
-  document.getElementById('step' + currentEnquiryStep).style.display = 'flex';
-  document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('active');
-
-  // Populate Summary
-  if (currentEnquiryStep === 3) {
-    document.getElementById('confirm-name').textContent = 
-      document.getElementById('fname').value + ' ' + document.getElementById('lname').value;
-    document.getElementById('confirm-email').textContent = document.getElementById('email').value;
-    document.getElementById('confirm-phone').textContent = document.getElementById('phone').value;
-    document.getElementById('confirm-grade').textContent = document.getElementById('grade').value;
-    document.getElementById('confirm-program').textContent = document.getElementById('program').value;
+  if (!name || !email || !phone || !grade) {
+    alert('Please fill all required fields (*)');
+    return;
   }
   
-  initIcons();
-}
+  const btn = document.querySelector('.btn-submit-simple');
+  if (!btn) return;
 
-function prevStep() {
-  document.getElementById('step' + currentEnquiryStep).style.display = 'none';
-  document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('active');
-  
-  currentEnquiryStep--;
-  
-  document.getElementById('step' + currentEnquiryStep).style.display = 'flex';
-  document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('done');
-  document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('active');
-  
-  initIcons();
-}
-
-function submitEnquiry() {
-  const btn = document.querySelector('.btn-submit-v4');
   const originalText = btn.innerHTML;
-  
   btn.innerHTML = '<i data-lucide="check"></i> Enquiry Submitted!';
+  btn.disabled = true;
   initIcons();
   btn.style.backgroundColor = 'var(--navy)';
+  btn.style.color = '#fff';
   
-  // Show global toast if needed or alert
-  alert('Thank you! Your enquiry for the Integrated Program has been received.');
-
+  // Simulation of success
   setTimeout(() => {
+    alert('Thank you! Your admission enquiry has been received. Our team will contact you soon.');
+    
+    // Reset button
     btn.innerHTML = originalText;
+    btn.disabled = false;
     btn.style.backgroundColor = '';
+    btn.style.color = '';
     initIcons();
     
-    // Reset to Step 1
-    document.getElementById('step3').style.display = 'none';
-    document.getElementById('step3-tab').classList.remove('active', 'done');
-    document.getElementById('step2-tab').classList.remove('active', 'done');
-    document.getElementById('step1-tab').classList.remove('done');
-    document.getElementById('step1-tab').classList.add('active');
-    document.getElementById('step1').style.display = 'flex';
-    
-    // Clear inputs
-    const ids = ['fname', 'lname', 'email', 'phone', 'grade', 'program', 'msg', 'parent-name', 'parent-phone'];
-    ids.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) el.value = '';
-    });
-    currentEnquiryStep = 1;
-    initIcons();
-  }, 3500);
+    // Reset form
+    document.getElementById('simple-enquiry-form').reset();
+  }, 1500);
 }
 
 // Mobile UX: Hide floating buttons when typing to avoid overlapping form fields
 const floatingButtons = document.querySelectorAll('.float-whatsapp, .float-admission');
-const inputs = document.querySelectorAll('input, textarea, select');
+const formInputs = document.querySelectorAll('input, textarea, select');
 
-inputs.forEach(input => {
+formInputs.forEach(input => {
   input.addEventListener('focus', () => {
     if (window.innerWidth <= 768) {
       floatingButtons.forEach(btn => btn.classList.add('floats-hidden'));
