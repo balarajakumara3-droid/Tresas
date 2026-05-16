@@ -16,15 +16,15 @@
   <path d="M178,278 Q250,308 322,278" stroke="#d4a843" stroke-width="3" fill="none"/>
 
   <!-- TRESAS -->
-  <text x="250" y="410" text-anchor="middle" fill="#0c2340" font-size="46" font-weight="700" font-family="Georgia, serif" letter-spacing="6">TRESAS</text>
+  <text x="250" y="410" text-anchor="middle" fill="#0c2340" font-size="46" font-weight="700" font-family="Georgia, serif" letter-spacing="6">ST. THERESA'S</text>
 
   <!-- Gold lines beside TRESAS -->
   <line x1="155" y1="418" x2="210" y2="418" stroke="#d4a843" stroke-width="1.8"/>
   <line x1="290" y1="418" x2="345" y2="418" stroke="#d4a843" stroke-width="1.8"/>
 
   <!-- MATRICULATION SCHOOL -->
-  <text x="250" y="438" text-anchor="middle" fill="#0c2340" font-size="13" font-weight="600" letter-spacing="4" font-family="Arial, sans-serif">MATRICULATION</text>
-  <text x="250" y="456" text-anchor="middle" fill="#0c2340" font-size="13" font-weight="600" letter-spacing="4" font-family="Arial, sans-serif">SCHOOL</text>
+  <text x="250" y="438" text-anchor="middle" fill="#0c2340" font-size="13" font-weight="600" letter-spacing="4" font-family="Arial, sans-serif">MATRIC.</text>
+  <text x="250" y="456" text-anchor="middle" fill="#0c2340" font-size="13" font-weight="600" letter-spacing="4" font-family="Arial, sans-serif">(HR. SEC. SCHOOL)</text>
 
   <!-- Location -->
   <text x="250" y="478" text-anchor="middle" fill="#999999" font-size="12" font-family="Arial, sans-serif" letter-spacing="1">Nagercoil · Tamil Nadu</text>

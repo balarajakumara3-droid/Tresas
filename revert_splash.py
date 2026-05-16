@@ -1,7 +1,7 @@
 import os
 import re
 
-simple_loader_html = """  <div class="page-loader" aria-label="Loading Tresas Matriculation School">
+simple_loader_html = """  <div class="page-loader" aria-label="Loading St. Theresa's Matric. (Hr. Sec. School)">
     <img src="tresas_logo_option2_fixed.svg" alt="" aria-hidden="true">
     <span></span>
   </div>"""
