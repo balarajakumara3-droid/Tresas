@@ -2137,9 +2137,6 @@ textarea:focus {
 .info-card svg {
   width: 24px;
   height: 24px;
-  color: var(--green);
-  flex-shrink: 0;
-}
 
 
 .site-header {
@@ -4599,4 +4596,45 @@ body.is-loaded .splash-screen {
 body.is-loaded-immediate .splash-screen {
   display: none !important;
   transition: none !important;
+}
+
+/* Mobile Header & Footer Optimizations */
+@media (max-width: 768px) {
+  .topbar-contact .separator,
+  .topbar-contact a:not(:first-child) {
+    display: none;
+  }
+  
+  .topbar-inner {
+    justify-content: center;
+  }
+
+  .nav-inner {
+    min-height: 65px !important;
+    padding: 0 15px;
+  }
+  
+  .brand-logo {
+    height: 55px !important;
+  }
+
+  .footer-grid-v2 {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 30px !important;
+  }
+  
+  .footer-grid-v2 > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .footer-grid-v2 ul {
+    align-items: center;
+  }
+
+  .nav-actions {
+    display: none; /* Hide button on very small screens to save space */
+  }
 }

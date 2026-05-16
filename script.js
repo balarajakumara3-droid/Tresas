@@ -74,75 +74,80 @@ enquiryForm?.addEventListener("submit", (event) => {
 
 startSlider();
 
-// Counter Animation
+// Counter Animation Logic
 function animateCounters(elements) {
-  const duration = 2500; // 2.5 seconds for a premium feel
+  const duration = 2000; // 2 seconds
 
   elements.forEach(counter => {
     if (counter.classList.contains('counted')) return;
+    
+    const targetValue = parseFloat(counter.getAttribute("data-target"));
+    if (isNaN(targetValue)) return;
+
     counter.classList.add('counted');
-
-    const target = parseFloat(counter.getAttribute("data-target"));
-    if (isNaN(target)) return;
-
     const suffix = counter.getAttribute("data-suffix") || (counter.getAttribute("data-plus") === "true" ? "+" : "");
     const decimals = parseInt(counter.getAttribute("data-decimals")) || 0;
     
-    let startTime = null;
+    let startTimestamp = null;
 
-    const updateCount = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       
-      // Easing function for smoother finish (easeOutExpo-ish)
-      const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      const current = easeProgress * target;
+      // Power 4 Out easing
+      const ease = 1 - Math.pow(1 - progress, 4);
+      const current = ease * targetValue;
       
-      counter.innerText = (progress === 1 ? target : current).toFixed(decimals) + suffix;
+      counter.innerText = current.toFixed(decimals) + suffix;
 
       if (progress < 1) {
-        requestAnimationFrame(updateCount);
+        window.requestAnimationFrame(step);
+      } else {
+        counter.innerText = targetValue.toFixed(decimals) + suffix;
       }
     };
-    requestAnimationFrame(updateCount);
+    window.requestAnimationFrame(step);
   });
 }
 
-// Observer for Counters
-const statsObserver = new IntersectionObserver((entries) => {
+// Robust Observer for Counters and Animations
+const scrollObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
+      // Trigger Counters
       const counters = entry.target.querySelectorAll(".stat-number, .stat-num");
       if (counters.length > 0) {
         animateCounters(counters);
-        // We only unobserve if all counters in this section are animated
-        statsObserver.unobserve(entry.target);
+      }
+      
+      // Trigger Fade-up animations
+      if (entry.target.classList.contains('fade-up')) {
+        entry.target.classList.add('in');
       }
     }
   });
-}, { threshold: 0.15 }); // Lower threshold for better reliability on mobile
+}, { threshold: 0.1 });
 
-document.querySelectorAll(".impact-section, .stats-section, .education, .welcome-section, .vision-section-v2").forEach(section => {
-  statsObserver.observe(section);
+// Initialize Observers
+document.querySelectorAll(".impact-section, .stats-section, .education, .welcome-section, .vision-section-v2, .fade-up").forEach(el => {
+  scrollObserver.observe(el);
 });
 
-if (window.lucide) {
-  window.lucide.createIcons();
+// Initialize Lucide icons on page load and after dynamic changes
+function initIcons() {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
-// Fade-up Animation Observer
-const fadeObserverOptions = { threshold: 0.12 };
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in');
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, fadeObserverOptions);
+// Call init once immediately
+initIcons();
 
-document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+// Also call on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initIcons);
+
+// Final fallback for icons
+window.addEventListener('load', initIcons);
 
 // Contact Form Handler
 function handleContactSubmit() {
@@ -161,13 +166,13 @@ function handleContactSubmit() {
 
   const originalText = btn.innerHTML;
   btn.innerHTML = '<i data-lucide="check"></i> Message Sent!';
-  if (window.lucide) window.lucide.createIcons();
+  initIcons();
   btn.style.backgroundColor = 'var(--green)';
   
   setTimeout(() => {
     btn.innerHTML = originalText;
     btn.style.backgroundColor = '';
-    if (window.lucide) window.lucide.createIcons();
+    initIcons();
     
     // Reset form
     const inputs = ['f-name-v2', 'f-email-v2', 'f-phone-v2', 'f-subject-v2', 'f-msg-v2'];
@@ -217,7 +222,7 @@ function nextStep() {
     document.getElementById('confirm-program').textContent = document.getElementById('program').value;
   }
   
-  if (window.lucide) window.lucide.createIcons();
+  initIcons();
 }
 
 function prevStep() {
@@ -230,7 +235,7 @@ function prevStep() {
   document.getElementById('step' + currentEnquiryStep + '-tab').classList.remove('done');
   document.getElementById('step' + currentEnquiryStep + '-tab').classList.add('active');
   
-  if (window.lucide) window.lucide.createIcons();
+  initIcons();
 }
 
 function submitEnquiry() {
@@ -238,7 +243,7 @@ function submitEnquiry() {
   const originalText = btn.innerHTML;
   
   btn.innerHTML = '<i data-lucide="check"></i> Enquiry Submitted!';
-  if (window.lucide) window.lucide.createIcons();
+  initIcons();
   btn.style.backgroundColor = 'var(--navy)';
   
   // Show global toast if needed or alert
@@ -247,7 +252,7 @@ function submitEnquiry() {
   setTimeout(() => {
     btn.innerHTML = originalText;
     btn.style.backgroundColor = '';
-    if (window.lucide) window.lucide.createIcons();
+    initIcons();
     
     // Reset to Step 1
     document.getElementById('step3').style.display = 'none';
@@ -264,7 +269,7 @@ function submitEnquiry() {
       if (el) el.value = '';
     });
     currentEnquiryStep = 1;
-    if (window.lucide) window.lucide.createIcons();
+    initIcons();
   }, 3000);
 }
 
@@ -282,8 +287,3 @@ inputs.forEach(input => {
     floatingButtons.forEach(btn => btn.classList.remove('floats-hidden'));
   });
 });
-
-// Initialize Lucide icons on page load
-if (window.lucide) {
-  window.lucide.createIcons();
-}
