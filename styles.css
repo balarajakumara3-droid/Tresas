@@ -4796,13 +4796,30 @@ body.is-loaded-immediate .page-loader {
 /* Mobile Header & Footer Optimizations */
 @media (max-width: 768px) {
 
-  .topbar-contact .separator,
-  .topbar-contact a:not(:first-child) {
+  .topbar-contact .separator {
     display: none;
   }
 
+  .topbar-contact {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .topbar-contact a {
+    font-size: 11px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
   .topbar-inner {
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 16px;
+    gap: 4px;
   }
 
   .nav-inner {
